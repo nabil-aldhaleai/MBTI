@@ -1,0 +1,3 @@
+nabil
+
+{{dd($data)}}

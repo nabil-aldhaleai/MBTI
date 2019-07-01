@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMbtiAnswers extends Migration
+class CreateAnswers extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateMbtiAnswers extends Migration
      */
     public function up()
     {
-        Schema::create('mbti_answers', function (Blueprint $table) {
+        Schema::create('answers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('email');
             $table->unsignedInteger('first_question');
@@ -38,6 +38,6 @@ class CreateMbtiAnswers extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mbti_answers');
+        Schema::dropIfExists('answers');
     }
 }

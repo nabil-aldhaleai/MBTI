@@ -18,6 +18,16 @@
 
             .submit-button {
                 margin-top: 20px;
+                margin-bottom: 50px;
+            }
+            .section {
+                margin-left: 199px;
+                margin-top: 30px;
+                margin-bottom: 40px;
+            }
+
+            .section-header {
+                color:#2E4B77;
             }
         </style>
 
@@ -35,9 +45,9 @@
         </div>
     @endif
             <div class="container.">
-                <section>
-                <p>Discover your perspective.</p>
-                <p>Complete the 7 min test and get a detailed report of yoru lenses on the world.</p>
+                <section class="section">
+                    <h5 class="section-header">Discover your perspective.</h5>
+                    <p>Complete the 7 min test and get a detailed report of yoru lenses on the world.</p>
                 </section >
 
                 <form action="/answers/" method="POST">
@@ -73,8 +83,6 @@
                                     </div>
 
                                     <label class="agree" >Agree</label>
-
-                                    {{-- <p class="error-message">{this.state.firstQuestionError}</p> --}}
 
                                 </div>
                             </div>
@@ -113,8 +121,6 @@
 
                                     <label class="agree" >Agree</label>
 
-                                    {{-- <p class="error-message">{this.state.secondQuestionError}</p> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -151,8 +157,6 @@
                                     </div>
 
                                     <label class="agree" >Agree</label>
-
-                                    {{-- <p class="error-message">{this.state.thirdQuestionError}</p> --}}
 
                                 </div>
                             </div>
@@ -191,8 +195,6 @@
 
                                     <label class="agree" >Agree</label>
 
-                                    {{-- <p class="error-message">{this.state.fourthQuestionError}</p> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -229,8 +231,6 @@
                                     </div>
 
                                     <label class="agree" >Agree</label>
-
-                                    {{-- <p class="error-message">{this.state.fifthQuestionError}</p> --}}
 
                                 </div>
                             </div>
@@ -269,8 +269,6 @@
 
                                     <label class="agree" >Agree</label>
 
-                                    {{-- <p class="error-message">{this.state.sixthQuestionError}</p> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -307,8 +305,6 @@
                                     </div>
 
                                     <label class="agree" >Agree</label>
-
-                                    {{-- <p class="error-message">{this.state.seventhQuestionError}</p> --}}
 
                                 </div>
                             </div>
@@ -347,8 +343,6 @@
 
                                     <label class="agree" >Agree</label>
 
-                                    {{-- <p class="error-message">{this.state.eightQuestionError}</p> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -385,8 +379,6 @@
                                     </div>
 
                                     <label class="agree" >Agree</label>
-
-                                    {{-- <p class="error-message">{this.state.ninthQuestionError}</p> --}}
 
                                 </div>
                             </div>
@@ -425,8 +417,6 @@
 
                                     <label class="agree" >Agree</label>
 
-                                    {{-- <p class="error-message">{this.state.tenthQuestionError}</p> --}}
-
                                 </div>
                             </div>
                         </div>
@@ -438,14 +428,13 @@
                                 <div class="card-body text-center">
                                     <p>Your Email</p>
                                     <input type="email" class="form-control" name="email" placeholder="you@example.com" required />
-                                    {{-- <p class="error-message">{this.state.emailError}</p> --}}
                                 </div>
                             </div>
                         </div>
                     </div> 
 
                     <div class="row justify-content-center">
-                        <button type="submit" class="btn btn-primary submit-button">Save & Continue</button>
+                        <button type="submit" class="btn btn-primary submit-button submit-btn">Save & Continue</button>
                     </div>
                 </form>
             </div>

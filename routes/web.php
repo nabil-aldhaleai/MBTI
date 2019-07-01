@@ -11,17 +11,10 @@
 |
 */
 
-// Route::get( '/answers/results', function () {
-//     return view('/answers/results');
-// });
-
 Route::get('/answers/results/{answer}', 'AnswersController@calculateMBTI');
-// Route::get('/answers/results', 'AnswersController@calculateMBTI');
-
 
 Route::resource('answers', 'AnswersController');
 
 Route::get('/', function () {
-    // return view('welcome');
     return view( '/answers/create');
 });

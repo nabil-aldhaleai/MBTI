@@ -55,58 +55,50 @@ class AnswersController extends Controller
         return redirect('/answers/results/'. $lastAnswer->id);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Answer $answer)
-    {
-        return view('answers.show', compact('answer'));
-    }
-
     public function calculateMBTI(Answer $answer){
-
         $mbit = '';
+        $data = [];
 
         // EI - Extraversion (E) or Introversion (I) calcx 
         if ((($answer->first_question >= $answer->fourth_question) || ( $answer->first_question >= $answer->fourth_question)) && $answer->first_question < 4){
             $mbit .= 'I';
+            $data['EI direction'] = 1; 
         } else {
             $mbit .= 'E';
+            $data['EI direction'] = -1; 
         }
 
         // SN - Sensing (S) or Intuition (N) calcs
         if ( $answer->second_question == $answer->fifth_question || $answer->second_question > $answer->fifth_question) {
             $mbit .= 'S';
+            $data['SN direction'] = -1;
         } else {
             $mbit .= 'N';
+            $data['SN direction'] = 1;
         }
 
         // TF - Thinking(T) or Feeling(F)
         if ( $answer->third_question == $answer->seventh_question || $answer->third_question < $answer->seventh_question) {
             $mbit .= 'T';
+            $data['TF direction'] = -1;
+
         } else {
             $mbit .= 'F';
+            $data['TF direction'] = 1;
+
         }
 
         // JP - Judging (J) or Perceiving (P) calcs
-        if ((( $answer->eighth_question >= $answer->tenth_question) || ( $answer->eighth_question >= $answer->sixth_question)) && $answer->eighth_question <= 4) {
-            $mbit .= 'J';
-        } else {
+        if ( $answer->tenth_question > $answer->eighth_question  || (( $answer->tenth_question == $answer->eighth_question) && !( $answer->eighth_question  <= 4))) {
+
             $mbit .= 'P';
+            $data['JP direction'] = 1;
+        } else {
+            $mbit .= 'J';
+            $data[ 'JP direction'] = -1;
         }
 
-        // TODO:: generate the directions for the mbit
-        
-        $data = [
-            'mbit' => $mbit,
-            'EI direction' => '1',
-            'SN direction' => '-1',
-            'TF direction' => '1',
-            'JP direction' => '-1'
-        ];
+        $data['mbit'] = $mbit;
         return view('answers.results', compact('data'));
     }
 }

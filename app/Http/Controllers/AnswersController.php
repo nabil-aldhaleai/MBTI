@@ -52,13 +52,7 @@ class AnswersController extends Controller
         ]);
  
         $lastAnswer = Answer::create($response);
-        // dd($lastAnswer->id); 
         return redirect('/answers/results/'. $lastAnswer->id);
-        // return redirect('/answers/results/'. $lastAnswer);
-        return redirect('/answers/results');
-
-
-        // return redirect('/answers/results')->with(compact('lastAnswer'));
     }
 
     /**
@@ -104,43 +98,15 @@ class AnswersController extends Controller
             $mbit .= 'P';
         }
 
-
-        dd($mbit);
-
+        // TODO:: generate the directions for the mbit
+        
         $data = [
-            'id' => '123',
-            'name' => 'nabil aldhaleai'
+            'mbit' => $mbit,
+            'EI direction' => '1',
+            'SN direction' => '-1',
+            'TF direction' => '1',
+            'JP direction' => '-1'
         ];
         return view('answers.results', compact('data'));
-    // public function calculateMBTI(){
-    //     dd('hi there');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Answer  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Answer $answer)
-    {
-        //
-    }
-
-
-    public function update(Request $request, Answer $answer)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Test  $answer
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy( Answer $answer)
-    {
-        //
     }
 }

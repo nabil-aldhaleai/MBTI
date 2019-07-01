@@ -26,7 +26,6 @@ class CreateAnswers extends Migration
             $table->unsignedInteger('eighth_question');
             $table->unsignedInteger('ninth_question');
             $table->unsignedInteger('tenth_question');
-            $table->string('perspective_type');
             $table->timestamps();
         });
     }
